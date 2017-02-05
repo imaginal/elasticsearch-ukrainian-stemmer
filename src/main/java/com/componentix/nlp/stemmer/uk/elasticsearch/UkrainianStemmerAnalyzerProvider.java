@@ -6,7 +6,7 @@ import org.apache.lucene.analysis.standard.*;
 import org.apache.lucene.analysis.miscellaneous.*;
 import org.apache.lucene.analysis.util.StopwordAnalyzerBase;
 import org.apache.lucene.util.Version;
-import org.elasticsearch.ElasticSearchIllegalArgumentException;
+//import org.elasticsearch.ElasticSearchIllegalArgumentException;
 import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.inject.assistedinject.Assisted;
 import org.elasticsearch.common.settings.Settings;
@@ -19,9 +19,10 @@ import java.io.Reader;
 
 public class UkrainianStemmerAnalyzerProvider extends AbstractIndexAnalyzerProvider<Analyzer> {
 
-    private final Analyzer analyzer = new StopwordAnalyzerBase(Version.LUCENE_40) {
+    private final Analyzer analyzer = new StopwordAnalyzerBase(Version.LUCENE_41) {
         @Override
         protected TokenStreamComponents createComponents(final String fieldName, final Reader reader) {
+            final Version matchVersion = Version.LUCENE_41;
             final Tokenizer source = new StandardTokenizer(matchVersion, reader);
             TokenStream result = new LowerCaseFilter(matchVersion, source);
             result = new StopFilter(matchVersion, result, stopwords);

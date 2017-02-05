@@ -1,7 +1,7 @@
 package com.componentix.nlp.stemmer.uk.elasticsearch;
 
 import org.apache.lucene.analysis.TokenStream;
-import org.elasticsearch.ElasticSearchIllegalArgumentException;
+//import org.elasticsearch.ElasticSearchIllegalArgumentException;
 import org.elasticsearch.common.inject.Inject;
 import org.elasticsearch.common.settings.Settings;
 import org.elasticsearch.index.Index;
